@@ -1,4 +1,5 @@
-﻿using ElevenNote.Models;
+﻿using ElevenNote.Data;
+using ElevenNote.Models;
 using ElevenNote.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,6 +13,8 @@ namespace ElevenNote.MVC.Controllers
     [Authorize]
     public class NoteController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
+
         // GET: Note
         public ActionResult Index()
         {
@@ -25,6 +28,8 @@ namespace ElevenNote.MVC.Controllers
         // GET: Create
         public ActionResult Create()
         {
+            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+
             return View();
         }
 
@@ -44,6 +49,8 @@ namespace ElevenNote.MVC.Controllers
             };
 
             ModelState.AddModelError("", "Note could not be created.");
+
+            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name", model.CategoryId);
 
             return View(model);
         }
@@ -68,8 +75,12 @@ namespace ElevenNote.MVC.Controllers
                 {
                     NoteId = detail.NoteId,
                     Title = detail.Title,
-                    Content = detail.Content
+                    Content = detail.Content,
+                    CategoryId = detail.CategoryId,
+                    IsStarred = detail.IsStarred
                 };
+
+            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name", model.CategoryId);
 
             return View(model);
         }
@@ -96,6 +107,8 @@ namespace ElevenNote.MVC.Controllers
             }
 
             ModelState.AddModelError("", "Your note could not be updated.");
+
+            ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name", model.CategoryId);
 
             return View(model);
         }
