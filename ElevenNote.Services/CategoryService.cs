@@ -47,7 +47,8 @@ namespace ElevenNote.Services
                     .Select(c => new CategoryListItem()
                     {
                         CategoryId = c.CategoryId,
-                        Name = c.Name
+                        Name = c.Name,
+                        NotesCount = c.Notes.Count()
                     });
 
                 return query.ToList();
@@ -66,7 +67,13 @@ namespace ElevenNote.Services
                 return new CategoryDetail()
                 {
                     CategoryId = entity.CategoryId,
-                    Name = entity.Name
+                    Name = entity.Name,
+                    NotesCount = entity.Notes.Count(),
+                    Notes = entity.Notes.Select(n => new NoteListItem()
+                    {
+                        NoteId = n.NoteId,
+                        Title = n.Title
+                    }).ToList()
                 };
             }
 

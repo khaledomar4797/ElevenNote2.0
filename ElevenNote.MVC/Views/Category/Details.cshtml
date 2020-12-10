@@ -26,6 +26,24 @@
             @Html.DisplayFor(model => model.Name)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.NotesCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NotesCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+
+        @foreach (var note in Model.Notes)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => note.Title) |
+            </dd>
+        }
     </dl>
 </div>
 <p>
