@@ -28,6 +28,11 @@
                         <li>@Html.ActionLink("Note", "Index", "Note")</li>
                     }
 
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Category", "Index", "Category")</li>
+                    }
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

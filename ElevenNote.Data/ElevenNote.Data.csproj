@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202012091813228_InitialCreate.cs" />
     <Compile Include="Migrations\202012091813228_InitialCreate.Designer.cs">
@@ -78,6 +79,10 @@
     <Compile Include="Migrations\202012091949284_Added-IsStarred-Property.cs" />
     <Compile Include="Migrations\202012091949284_Added-IsStarred-Property.Designer.cs">
       <DependentUpon>202012091949284_Added-IsStarred-Property.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202012101555189_added-category.cs" />
+    <Compile Include="Migrations\202012101555189_added-category.Designer.cs">
+      <DependentUpon>202012101555189_added-category.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
@@ -96,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202012091949284_Added-IsStarred-Property.resx">
       <DependentUpon>202012091949284_Added-IsStarred-Property.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202012101555189_added-category.resx">
+      <DependentUpon>202012101555189_added-category.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

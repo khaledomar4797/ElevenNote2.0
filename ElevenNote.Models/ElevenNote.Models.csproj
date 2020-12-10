@@ -66,10 +66,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NoteCreate.cs" />
-    <Compile Include="NoteDetail.cs" />
-    <Compile Include="NoteEdit.cs" />
-    <Compile Include="NoteListItem.cs" />
+    <Compile Include="Category\CategoryCreate.cs" />
+    <Compile Include="Category\CategoryDetail.cs" />
+    <Compile Include="Category\CategoryEdit.cs" />
+    <Compile Include="Category\CategoryListItem.cs" />
+    <Compile Include="Note\NoteCreate.cs" />
+    <Compile Include="Note\NoteDetail.cs" />
+    <Compile Include="Note\NoteEdit.cs" />
+    <Compile Include="Note\NoteListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
